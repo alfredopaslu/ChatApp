@@ -1,31 +1,26 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./chat.css";
 
 
-const Chat = () => {
-/**
- 
-Enviar nuevos mensajes (utilizando botón Enviar y tecla Enter) 
-*/
-const [isLarge,setIsLarge] = useState(false);
-const [isOpacity,setIsOpacity] = useState(false);
-const toggleSize = () => {
-  setIsLarge(!isLarge);
-  setIsOpacity(!isOpacity);
-};
+const Chat = (props) => {
+  const [isLarge, setIsLarge] = useState(false);
+  const [userImage, setUserImage] = useState('../../public/fotosamuel.jpg');
 
-const opacity = isOpacity ? "chat chat-opacity" : "chat";
-
+  const toggleSize = () => {
+    setIsLarge(!isLarge);
+  };
 
   return (
-    <div className={opacity}>
+    <div className="chat">
       <div className="top">
         <div className="user">
           <div className="picture">
-          <img src="../../public/fotosamuel.jpg" alt="Foto de Samuel" 
-          className={isLarge ? 'large' : ''}
-          onClick={toggleSize}
-          />
+            <img
+              alt="Foto de Samuel"
+              className= {isLarge ? 'large' : ''}
+              src={userImage}
+              onClick={toggleSize}
+            />
           </div>
           <div className="texts">
             <span>Samu Propiedad de AEPEJ</span>
@@ -39,29 +34,36 @@ const opacity = isOpacity ? "chat chat-opacity" : "chat";
         </div>
       </div>
       <div className="center">
-
-        <div className="message own" >
+        <div className="message own">
           <div className="texts">
-            <img src="./avatar.png" alt="avatar del usuario" />
-            <p>texto mensaje</p>
+            <div className="imageText">
+              <p>texto mensaje</p>
+              <img src={props.myUserImage}
+                alt="avatar del usuario"
+              />
+            </div>
             <span>hora envío</span>
           </div>
         </div>
-        
         <div className="message">
           <div className="texts">
-            <img src="./avatar.png" alt="avatar del usuario" />
-            <p>texto de la otra persona</p>
+            <div className="imageText">
+              <img
+                className={isLarge ? 'large' : ''}
+                alt="avatar del usuario"
+                src={userImage}
+              />
+              <p>texto de la otra persona</p>
+            </div>
             <span>hora envío</span>
           </div>
         </div>
       </div>
-
       <div className="bottom">
         <textarea name="message" rows="1" placeholder="Escribe tu mensaje aquí..."></textarea>
-          <button className="sendButton"> Enviar </button>
-        </div>
+        <button className="sendButton"> Enviar </button>
       </div>
+    </div>
   );
 };
 

@@ -7,9 +7,11 @@ function List({ chats, updateChats, updateChat }) {
 
   console.log("newChats :>> ", newChats);
 
+const List = (props) => {
+
   return (
     <div className="list">
-      <Userinfo />
+      <Userinfo myUserImage = {props.myUserImage} changeUserImage={props.changeUserImage} fileInputRef={props.fileInputRef}/>
       {newChats.map((chat) => {
         return (
                      

@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+
+import { useState, useRef useEffect } from "react";
 import Chat from "./components/chat/Chat";
 import List from "./components/list/List";
 import { updateChats, timmer } from "./logic/generator";
-//import Notification from "./components/notification/Notification";
 
 /**
  * App component
@@ -31,11 +31,29 @@ function App() {
     setChat(chats);
   };
 
+const App = () => {
+
+  const [myUserImage, setMyUserImage] = useState('../public/avatar.png');
+  const fileInputRef = useRef(null);
+
+  const changeUserImage = (event) => {
+    const file = event.target.files[0];
+    
+    if (file) {
+      const reader = new FileReader();
+      
+      reader.onload = () => {
+        setMyUserImage(reader.result);
+      };
+      
+      reader.readAsDataURL(file);
+    }
+  };
   return (
     <div className="container">
-      <List chats={chats} updateChats={updateChats2} updateChat={updateChat} />
-      <Chat />
-      {/* <Notification /> */}
+      <List myUserImage={myUserImage} changeUserImage={changeUserImage} fileInputRef={fileInputRef}/>
+      <Chat myUserImage={myUserImage}/>
+
     </div>
   );
 }
