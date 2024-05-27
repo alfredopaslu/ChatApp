@@ -1,13 +1,23 @@
-import "./userInfo.css"
+import { useState, useRef } from "react";
+import "./userInfo.css";
 
-const Userinfo = () => {
+const UserInfo = (props) => {
 
   return (
-
-
     <div className='userInfo'>
       <div className="user">
-        <img src="./avatar.png" alt="" />
+        <input
+          type="file"
+          accept="image/*"
+          onChange={props.changeUserImage}
+          style={{ display: 'none' }}
+          ref={props.fileInputRef}
+        />
+        <img
+          src={props.myUserImage}
+          alt="mi Avatar"
+          onClick={() => props.fileInputRef.current.click()}
+        />
         <h2>UserInfo</h2>
       </div>
       <div className="icons">
@@ -16,7 +26,7 @@ const Userinfo = () => {
         <img src="./edit.png" alt="edit" />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Userinfo
+export default UserInfo;
