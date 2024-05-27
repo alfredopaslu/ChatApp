@@ -1,14 +1,24 @@
-import ChatList from "./chatList/ChatList"
-import "./list.css"
-import Userinfo from "./userInfo/Userinfo"
+import ChatList from "./chatList/ChatList.jsx";
+import "./list.css";
+import Userinfo from "./userInfo/Userinfo";
 
-const List = () => {
+function List({ chats, updateChats, updateChat }) {
+  const newChats = [...chats];
+
+  console.log("newChats :>> ", newChats);
+
   return (
-    <div className='list'>
-      <Userinfo/>
-      <ChatList/>
+    <div className="list">
+      <Userinfo />
+      {newChats.map((chat) => {
+        return (
+                     
+          <ChatList key={chat.user_id} chat={chat} updateChat={updateChat} />
+        
+        );
+      })}
     </div>
-  )
+  );
 }
 
-export default List
+export default List;
