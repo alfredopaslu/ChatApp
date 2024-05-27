@@ -92,11 +92,16 @@
             background: linear-gradient(to left, rgb(27, 116, 111), rgba(27, 116, 111, 0));
           }
 
+          .imageText {
+            justify-content: right;
+            gap: 10px;
+            display: flex;
+          }
+
           img {
-            align-self: self-end;
             width: 70px;
             height: 70px;
-            border-radius: 10px;
+            border-radius: 50%;
             object-fit: cover;
           }
 
@@ -124,10 +129,16 @@
         flex-direction: column;
         gap: 5px;
 
+        .imageText {
+          justify-content: left;
+          gap: 10px;
+          display: flex;
+        }
+
           img {
             width: 70px;
             height: 70px;
-            border-radius: 10px;
+            border-radius: 50%;
             object-fit: cover;
           }
 
