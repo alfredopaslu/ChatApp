@@ -1,30 +1,17 @@
-import "./chatList.css";
+import React from 'react';
+import './chatList.css';
 
 const ChatList = () => {
+  const chats = ['Chat 1', 'Chat 2', 'Chat 3'];
 
-/**
- * Buscador (input Searchbar)
- *  
- */  
   return (
-    <div className="chatList">
-      <div className="search">
-
-        <div className="searchBar">
-          <img src="./search.png" alt="" />
-          <input type="text" placeholder="Search" />
-        </div>
-      </div>
-
-      <div className="item">
-        <img src="./avatar.png" alt="" />
-        <div className="texts">
-          <span> Chat List Texts Span</span>
-          <p>Chat List Texts P</p>
-        </div>
-      </div>
+    <div className="chat-list">
+      {chats.map((chat, index) => (
+        <div key={index} className="chat-item">{chat}</div>
+      ))}
     </div>
   );
 };
 
 export default ChatList;
+

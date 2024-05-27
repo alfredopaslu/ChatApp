@@ -1,22 +1,16 @@
-import "./userInfo.css"
+import React from 'react';
+import '../../list/userInfo/userInfo.css';
 
-const Userinfo = () => {
-
+const UserInfo = () => {
   return (
-
-
-    <div className='userInfo'>
-      <div className="user">
-        <img src="./avatar.png" alt="" />
-        <h2>UserInfo</h2>
-      </div>
-      <div className="icons">
-        <img src="./more.png" alt="more" />
-        <img src="./video.png" alt="video" />
-        <img src="./edit.png" alt="edit" />
+    <div className="user-info">
+      <div className="avatar">User Avatar</div>
+      <div className="user-details">
+        <h2>User Name</h2>
+        <p>Status message...</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Userinfo
+export default UserInfo;

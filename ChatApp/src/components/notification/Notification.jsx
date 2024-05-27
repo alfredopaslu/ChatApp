@@ -1,13 +1,12 @@
+import React from 'react';
+import './Notification.css';
 
-/**
- * Añadir notificaciones al recibir nuevos mensajes 
- */
-
-const Notification = () => {
+const Notification = ({ message }) => {
   return (
-    <div className='notification'>
+    <div className="notification">
+      {message}
     </div>
-  )
-}
+  );
+};
 
-export default Notification
+export default Notification;

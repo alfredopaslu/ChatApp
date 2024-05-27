@@ -1,19 +1,15 @@
-import Chat from "./components/chat/Chat";
-import List from "./components/list/List";
-import Notification from "./components/notification/Notification";
-
+import React from 'react';
+import Chat from './components/chat/Chat';
+import List from './components/list/List';
+import Notification from './components/notification/Notification';
+import './App.css';
 
 const App = () => {
-  /**
-   * List: Alfredo, Andrés, Álvaro, Alex (Equipo A)
-   * Chat: Christian, Laura, Oscar, Leo
-   *
-   */
   return (
-    <div className="container">
+    <div className="app-container">
       <List />
       <Chat />
-      {/* <Notification /> */}
+      <Notification message="You have new messages!" />
     </div>
   );
 };

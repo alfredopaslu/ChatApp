@@ -1,5 +1,6 @@
-.list {
-  flex: 1;
+.list-container {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  border-right: 1px solid #ccc;
 }
