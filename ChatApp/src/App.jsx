@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Chat from "./components/chat/Chat";
 import List from "./components/list/List";
 import { updateChats, timmer } from "./logic/generator";
 //import Notification from "./components/notification/Notification";
-
 
 /**
  * App component
@@ -12,14 +11,17 @@ import { updateChats, timmer } from "./logic/generator";
  * @example Chat: Christian, Laura, Oscar, Leonardo (Equipo B)
  * @example Messages: Luis, forever alone (Equipo C)
  */
-const App = () => {
+function App() {
 
   const [chats, setChats] = useState([]);
 
-  setTimeout(() => {
-    setChats(updateChats(chats))
-    console.log('chats :>> ', chats);
-  }, timmer);
+  useEffect(() => {
+
+    const interval = setTimeout(() => { setChats(updateChats(chats)) }, timmer);
+
+    return () => clearInterval(interval);
+
+  })
 
   return (
     <div className="container">
@@ -28,6 +30,6 @@ const App = () => {
       {/* <Notification /> */}
     </div>
   );
-};
+}
 
 export default App;
