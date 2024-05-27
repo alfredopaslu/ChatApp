@@ -63,3 +63,7 @@
     }
   }
 }
+
+.chatList::-webkit-scrollbar {
+  display: none;
+}
