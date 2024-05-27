@@ -5,8 +5,8 @@ import Notification from "./components/notification/Notification";
 
 const App = () => {
   /**
-   * Chat:
-   * List: 
+   * List: Alfredo, Andrés, Álvaro, Alex (Equipo A)
+   * Chat: Christian, Laura, Oscar, Leo
    *
    */
   return (
